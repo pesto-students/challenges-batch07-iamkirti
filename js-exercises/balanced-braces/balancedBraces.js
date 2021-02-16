@@ -1,14 +1,6 @@
 function balancedBraces(args) {
-  const braces = ["{", "}", "[", "]", "(", ")"];
-  const finalArr = args.split("");
-  const newArr = [];
-  for (const i of finalArr) {
-    if (braces.includes(i)) {
-      newArr.push(i);
-    }
-  }
   const stack1 = [];
-  for (const i of braces) {
+  for (const i of args) {
     if (i === "{" || i === "(" || i === "[") {
       stack1.push(i);
     } else if (i === ")" || i === "}" || i === "]") {
@@ -23,12 +15,13 @@ function balancedBraces(args) {
       } else {
         stack1.push(i);
       }
-    }
-    if (stack1.length === 0) {
-      return true;
     } else {
-      return false;
     }
+  }
+  if (stack1.length === 0) {
+    return true;
+  } else {
+    return false;
   }
 }
 
